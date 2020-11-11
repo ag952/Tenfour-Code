@@ -1,0 +1,11 @@
+---
+- name: IOS Upgrade
+  hosts: all
+
+  vars:
+    ios_version: "{{ ios_version }}"
+    ios_filename: "{{ ios_filename }}"
+
+  tasks:
+    - name: Verify IOS version on device
+      ios_facts:
