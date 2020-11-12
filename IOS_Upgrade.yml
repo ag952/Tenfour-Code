@@ -1,6 +1,7 @@
 ---
 - name: IOS Upgrade
   hosts: all
+  gather_facts: no
 
   vars:
     ios_version: "{{ ios_version }}"
