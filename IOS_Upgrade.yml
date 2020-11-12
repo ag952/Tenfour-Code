@@ -1,13 +1,13 @@
 ---
-- name: IOS Upgrade
+- name: Show inventory on IOS
   hosts: all
   gather_facts: no
-
-- tasks:
+  
+  tasks:
   - name: Show inventory
     ios_command:
       commands: "show inventory"
     register: result
       
   - name: Display output
-    debug: var=result.stdout_line
+    debug: var=result.stdout_lines
