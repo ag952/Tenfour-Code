@@ -3,10 +3,11 @@
   hosts: all
   gather_facts: no
 
-  vars:
-    ios_version: "{{ ios_version }}"
-    ios_filename: "{{ ios_filename }}"
-
-  tasks:
-    - name: Verify IOS version on device
-      ios_facts:
+ tasks:
+  - name: Show inventory
+    ios_command:
+      commands: "show inventory"
+    register: result
+      
+  - name: Display output
+    debug: var=result.stdout_line
