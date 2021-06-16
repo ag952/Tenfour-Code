@@ -1,11 +1,10 @@
----
-- name: run multiple commands on remote nodes 
+- name: test
   hosts: all
   gather_facts: no
-  
+
   tasks:
-    - name: show ver, show interfaces
-    ios_command:
-      commands:
-      - show version
-      - show interfaces
+    - name: show module and ip interfaces brief
+      ios_command:
+        commands:
+            - show module
+            - show ip interface brief
