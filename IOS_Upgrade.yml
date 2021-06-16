@@ -1,5 +1,11 @@
-- name: run multiple commands on remote nodes
-  cisco.ios.ios_command:
+---
+- name: run multiple commands on remote nodes 
+  hosts: all
+  gather_facts: no
+  
+  tasks:
+    - name: show ver, show interfaces
+    cisco.ios.ios_command:
     commands:
     - show version
     - show interfaces
