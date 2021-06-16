@@ -1,12 +1,13 @@
 ---
 - name: Show inventory on IOS
   hosts: all
-  gather_facts: no
+  gather_facts: false
   
   tasks:
   - name: Show inventory
     ios_command:
-      commands: show inventory
+      commands: 
+        - show inventory
     register: result
       
   - name: Display output
