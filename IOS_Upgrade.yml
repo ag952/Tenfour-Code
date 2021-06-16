@@ -5,7 +5,7 @@
   
   tasks:
     - name: show ver, show interfaces
-    cisco.ios.ios_command:
-    commands:
-    - show version
-    - show interfaces
+    ios_command:
+      commands:
+      - show version
+      - show interfaces
