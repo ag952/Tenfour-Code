@@ -1,14 +1,5 @@
----
-- name: Show inventory on IOS
-  hosts: all
-  gather_facts: false
-  
-  tasks:
-  - name: Show inventory
-    ios_command:
-      commands: 
-        - show inventory
-    register: result
-      
-  - name: Display output
-    debug: var=result.stdout_lines
+- name: run multiple commands on remote nodes
+  cisco.ios.ios_command:
+    commands:
+    - show version
+    - show interfaces
