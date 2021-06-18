@@ -10,9 +10,9 @@
     register: version_result  
     debug: var=version_result.stdout_lines
     
-   - name: show boot marker
-     ios_command:
-      commands: "show run | sec boot"
+  - name: show boot marker
+    ios_command:
+     commands: "show run | sec boot"
     register: boot_result  
     debug: var=boot_result.stdout_lines
     
