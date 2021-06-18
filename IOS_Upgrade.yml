@@ -1,13 +1,21 @@
 ---
-- name: Show Version on IOS
+- name: IOS Upgrade Process - Verify
   hosts: all
   gather_facts: no
   
   tasks:
-  - name: Show ver
+  - name: show ver
     ios_command:
-      commands: "show version"
-    register: result
-      
-  - name: Display output
-    debug: var=result.stdout_lines
+      commands: "show version | i Version"
+    register: version_result  
+    debug: var=version_result.stdout_lines
+    
+   - name: show boot marker
+     ios_command:
+      commands: "show run | sec boot"
+    register: boot_result  
+    debug: var=boot_result.stdout_lines
+    
+
+    
+    
