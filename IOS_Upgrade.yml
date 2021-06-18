@@ -20,6 +20,13 @@
    - name: show ver output
      debug: var=boot_result.stdout_lines
     
+   - name: do reload in
+     ios_command:
+       commands:
+        - "reload in 1\ny"
+       provider: "{{ cli }}"
+     
+   
 
     
     
