@@ -1,10 +1,13 @@
-- name: test
+---
+- name: Show Version on IOS
   hosts: all
   gather_facts: no
-
+  
   tasks:
-    - name: show module and ip interfaces brief
-      ios_command:
-        commands:
-            - show module
-            - show ip interface brief
+  - name: Show ver
+    ios_command:
+      commands: "show version"
+    register: result
+      
+  - name: Display output
+    debug: var=result.stdout_lines
