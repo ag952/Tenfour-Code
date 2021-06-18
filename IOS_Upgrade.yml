@@ -8,12 +8,16 @@
      ios_command:
        commands: "show version | i Version"
      register: version_result  
+     
+   - name: show ver output
      debug: var=version_result.stdout_lines
     
    - name: show boot marker
      ios_command:
       commands: "show run | sec boot"
      register: boot_result  
+     
+   - name: show ver output
      debug: var=boot_result.stdout_lines
     
 
