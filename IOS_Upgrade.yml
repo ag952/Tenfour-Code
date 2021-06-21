@@ -61,7 +61,7 @@
        delay: 10
 
     
-# Find out Current Version and Uptime on Router
+# Find out Current Version and Uptime on Router post Upgrade
     - name: IOS Version
       ios_command:
        commands: "show version | i Version"
@@ -70,8 +70,7 @@
        commands: "show version | i Uptime"
       register: uptime_result1  
     
-    - name: show ver output
+    - name: show ver output post upgrade
       debug: var=version_result1.stdout_lines
-      
-    - name: show uptime output
+    - name: show uptime output post upgrade
       debug: var=uptime_result1.stdout_lines
