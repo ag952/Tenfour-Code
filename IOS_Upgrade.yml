@@ -72,6 +72,6 @@
     
     - name: show ver output
       debug: var=version_result1.stdout_lines
-	  
+      
     - name: show uptime output
       debug: var=uptime_result1.stdout_lines
