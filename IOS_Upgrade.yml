@@ -64,12 +64,8 @@
 # Find out Current Version and Uptime on Router post Upgrade
     - name: IOS Version
       ios_command:
-       commands: "show version | i Version"
-      register: version_result1  
-       commands: "show version | i Uptime"
-      register: uptime_result1  
+       commands: "show version"
+      register: versionall_result
     
-    - name: show ver output post upgrade
-      debug: var=version_result1.stdout_lines
-    - name: show uptime output post upgrade
-      debug: var=uptime_result1.stdout_lines
+    - name: show version output post upgrade
+      debug: var=versionall_result.stdout_lines
