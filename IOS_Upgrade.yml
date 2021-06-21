@@ -56,9 +56,9 @@
            answer: "\r"
    
 #  Waiting for Connection to Recur 
-	- name: Wait for the network device to reload
-	  wait_for_connection:
-		delay: 10
+    - name: Wait for the network device to reload
+      wait_for_connection:
+       delay: 10
 
     
 # Find out Current Version and Uptime on Router
