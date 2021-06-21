@@ -5,23 +5,24 @@
   
   tasks:
  
-# Find out Current Version on Router
+# Find out Current Version and Uptime on Router
     - name: IOS Version
       ios_command:
        commands: "show version | i Version"
       register: version_result  
      
-    - name: show ver output
-      debug: var=version_result.stdout_lines
- 
-# Find out Current Uptime on Router
-    - name: Uptime
-      ios_command:
-       commands: "show version | i Uptime"
+	   commands: "show version | i Uptime"
       register: uptime_result  
-     
-    - name: show ver output
+    
+	- name: show ver output
+      debug: var=version_result.stdout_lines
+	  
+	- name: show uptime output
       debug: var=uptime_result.stdout_lines
+ 
+    
+     
+    
      
 # Find out Current Boot Marker on Router    
     - name: show boot marker
@@ -50,11 +51,31 @@
 # Reload Device         
     - name: Reloading Device
       ios_command:
-       commands: 
+		commands: 
          - command: "reload\n"
            prompt: 'Proceed with reload? [confirm]'
            answer: "\r"
-   
-
+		   
+#  Waiting for COnnection to Recur 
+	- name: Wait for the network device to reload
+	  wait_for_connection:
+		delay: 10
     
     
+# Find out Current Version and Uptime on Router
+    - name: IOS Version
+      ios_command:
+       commands: "show version | i Version"
+      register: version_result1  
+     
+	   commands: "show version | i Uptime"
+      register: uptime_result1  
+    
+	- name: show ver output
+      debug: var=version_result1.stdout_lines
+	  
+	- name: show uptime output
+      debug: var=uptime_result1.stdout_lines
+ 
+    
+     
