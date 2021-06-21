@@ -7,49 +7,49 @@
  
 # Find out Current Version on Router
     - name: IOS Version
-     ios_command:
+      ios_command:
        commands: "show version | i Version"
-     register: version_result  
+      register: version_result  
      
-   - name: show ver output
-     debug: var=version_result.stdout_lines
+    - name: show ver output
+      debug: var=version_result.stdout_lines
  
- # Find out Current Uptime on Router
+# Find out Current Uptime on Router
     - name: Uptime
-     ios_command:
+      ios_command:
        commands: "show version | i Uptime"
-     register: uptime_result  
+      register: uptime_result  
      
-   - name: show ver output
-     debug: var=uptime_result.stdout_lines
+    - name: show ver output
+      debug: var=uptime_result.stdout_lines
      
- # Find out Current Boot Marker on Router    
-   - name: show boot marker
-     ios_command:
-      commands: "show run | sec boot"
-     register: boot_result  
+# Find out Current Boot Marker on Router    
+    - name: show boot marker
+      ios_command:
+       commands: "show run | sec boot"
+      register: boot_result  
      
-   - name: show ver output
-     debug: var=boot_result.stdout_lines
+    - name: show ver output
+      debug: var=boot_result.stdout_lines
   
- # Difference between Saved and Running Config   
-   - name: verify config change
-     ios_command:
+# Difference between Saved and Running Config   
+    - name: verify config change
+      ios_command:
        commands: "show arc config diff"
-         register: config_diff_result  
+      register: config_diff_result  
     
     - name: show config diff output
-     debug: var=config_diff_result.stdout_lines
+      debug: var=config_diff_result.stdout_lines
      
- # Write Config 
-   - name: write config
-     ios_command:
+# Write Config 
+    - name: write config
+      ios_command:
        commands: 
          - command: "wr"
          
- # Reload Device         
-   - name: Reloading Device
-     ios_command:
+# Reload Device         
+    - name: Reloading Device
+      ios_command:
        commands: 
          - command: "reload\n"
            prompt: 'Proceed with reload? [confirm]'
