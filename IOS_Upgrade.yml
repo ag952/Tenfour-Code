@@ -70,8 +70,8 @@
        commands: "show version | i Uptime"
       register: uptime_result1  
     
-	- name: show ver output
+    - name: show ver output
       debug: var=version_result1.stdout_lines
 	  
-	- name: show uptime output
+    - name: show uptime output
       debug: var=uptime_result1.stdout_lines
